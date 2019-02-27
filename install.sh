@@ -42,6 +42,7 @@ Architecture=`uname -m`
 
 if [ $OS == "Darwin" ] || [[ $OS == "Mac"* ]]; then
     echo "OS/Architecture: ${OS}/${Architecture} detected, flushing $HOME/.bashrc with spark settings"
+    brew install python
     if [ $BASHRC_SPARK == "N" ]; then
         setup_aliases
         setup_spark
