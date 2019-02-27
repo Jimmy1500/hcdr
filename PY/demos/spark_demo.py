@@ -51,5 +51,10 @@ test_data.selectExpr("count(distinct(NAME_EDUCATION_TYPE))").show()
 # train_data.createOrReplaceTempView("APP_TRAIN_DATA")
 
 # data_schema = train_data.schema
+# new_rows = [ Row("New Country", "Other Country", 5L), Row("New Country 1", "Other Country 1", 1L) ]
+# parallelized_rows = spark.sparkContext.parallelize(new_rows)
+# new_df = spark.createDataFrame(parallelized_rows, schema)
+# test_data.union(new_df).where(col("NAME_EDUCATION_TYPE") == "Higher education").where(col("NAME_FAMILY_STATUS") == "Married").show()
+
 # app_data = test_data.union(train_data).where(col("NAME_EDUCATION_TYPE") == "Higher education").where(col("NAME_FAMILY_STATUS") == "Married")
 # app_data.show()
