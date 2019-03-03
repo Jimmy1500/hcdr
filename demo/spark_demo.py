@@ -6,12 +6,14 @@ from pyspark.context import SparkContext
 from pyspark.sql.session import SparkSession
 from pyspark.sql import Row
 from pyspark.sql.functions import expr, col, column
+import os
 
 sc=SparkContext('local')
 sc.setLogLevel("ERROR")
 spark=SparkSession(sc)
 
-test_data = spark.read.option("inferSchema", "true").option("header", "true").csv("../../data/application_test.csv")
+data_file = "../data/application_test.csv"
+test_data = spark.read.option("inferSchema", "true").option("header", "true").csv(data_file)
 test_data.createOrReplaceTempView("APP_TEST_DATA")
 
 # [Option 1] create new data frame by SQL
