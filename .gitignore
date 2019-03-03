@@ -4,3 +4,6 @@
 # Temp buffer file
 *.swp
 *.vim
+
+demo/__pycache__/*
+demo/data/*
